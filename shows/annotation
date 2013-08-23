@@ -1,0 +1,11 @@
+function(doc, req){
+    var newdoc = {id: doc._id};
+    for (var key in doc) {
+        if (key.charAt(0) !== '_') {
+            newdoc[key] = doc[key];
+        }
+    }
+    return {
+        json: newdoc
+    };
+}

@@ -1,0 +1,25 @@
+function(head, req) {
+    var row;
+    //start({
+    //    "headers": {
+    //        "Content-Type": "text/html"
+    //    }
+    //});
+    var prependComma = false;
+    send("[");
+    while(row = getRow()) {
+        if (prependComma) {
+            send(",");
+        }
+        prependComma = true;
+
+        var newrow = {id: row.id};
+        for (var key in row.value) {
+            if (key.charAt(0) !== '_') {
+                newrow[key] = row.value[key];
+            }
+        }
+        send(JSON.stringify(newrow));
+    }
+    send("]\n");
+}

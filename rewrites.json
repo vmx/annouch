@@ -1,0 +1,32 @@
+[
+    {
+       "from": "",
+       "to": "index.json",
+       "method": "GET"
+    },
+    {
+       "from": "annotations",
+       "to": "_list/annotations/annotations",
+       "method": "GET"
+    },
+    {
+       "from": "annotations",
+       "to": "../../",
+       "method": "POST"
+    },
+    {
+       "from": "annotations/:id",
+       "to": "_show/annotation/:id",
+       "method": "GET"
+    },
+    {
+       "from": "annotations/:id",
+       "to": "../../",
+       "method": "PUT"
+    },
+    {
+       "from": "annotations/:id",
+       "to": "../../",
+       "method": "DELETE"
+    }
+]

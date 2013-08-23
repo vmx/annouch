@@ -1,0 +1,5 @@
+function(doc) {
+    // Emit the full doc so we can use _all_docs once list functions
+    // for _all_docs is released (Apache CouchDB 1.4)
+    emit(null, doc);
+}
