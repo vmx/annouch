@@ -1,5 +1,15 @@
 [
     {
+       "from": "demo.html",
+       "to": "demo.html",
+       "method": "GET"
+    },
+    {
+       "from": "lib/:file",
+       "to": "lib/:file",
+       "method": "GET"
+    },
+    {
        "from": "",
        "to": "index.json",
        "method": "GET"
@@ -11,7 +21,7 @@
     },
     {
        "from": "annotations",
-       "to": "../../",
+       "to": "_update/annotation",
        "method": "POST"
     },
     {
@@ -21,7 +31,7 @@
     },
     {
        "from": "annotations/:id",
-       "to": "../../",
+       "to": "_update/annotation",
        "method": "PUT"
     },
     {
