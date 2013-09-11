@@ -38,5 +38,14 @@
        "from": "annotations/:id",
        "to": "../../",
        "method": "DELETE"
+    },
+    {
+       "from": "search",
+       "to": "_list/search/annotationsbyUri",
+       "method": "GET",
+       "query": {
+         "key": ":uri",
+         "include_docs": "true"
+       }
     }
 ]
