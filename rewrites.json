@@ -31,12 +31,12 @@
     },
     {
        "from": "annotations/:id",
-       "to": "_update/annotation",
+       "to": "_update/annotation/:id",
        "method": "PUT"
     },
     {
        "from": "annotations/:id",
-       "to": "../../",
+       "to": "../../:id",
        "method": "DELETE"
     },
     {

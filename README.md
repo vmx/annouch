@@ -34,7 +34,7 @@ XYZ.iriscouch.com/store = DBNAME/_design/annouch/_rewrite
 ```
 [cors]
 headers = Accept, Origin, x-annotator-auth-token, Content-Type
-methods = PUT, POST, GET, OPTIONS
+methods = PUT, POST, GET, OPTIONS, DELETE
 origins = *
 ```
 
