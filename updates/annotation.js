@@ -1,10 +1,16 @@
 function(doc, req) {
 	var resp = {headers: {'Content-Type': 'application/json'}}
-	var data;
+	var data = {}
 
-	if (req.body.length === 0) {
+	if (req.body.length === 0 || req.body === 'undefined') {
 		resp.code = 417
 		resp.body = JSON.stringify({error: 'aborted', reason: 'no content'})
+		return [null,resp]
+	}	
+
+	if (req.id && req.id.length > 0 && !doc) {
+		resp.code = 404
+		resp.body = JSON.stringify({error: 'aborted', reason: 'doc not found'})
 		return [null,resp]
 	}	
 
@@ -23,13 +29,15 @@ function(doc, req) {
 		doc._id = doc.id = req.uuid //the bookmarklet expects the property id
 		resp.code = 201
 	} else {
+		resp.code = 202
 		//update an annotation
 		for (p in data) {
-			if (p !== '_id' && data.hasOwnProperty(p)) {
+			if (p !== '_id' && p !== '_revisions' && data.hasOwnProperty(p)) {
 				doc[p] = data[p]
 			}
 		}
-		resp.code = 202
+		if (req.method === 'DELETE')
+			doc._deleted = true
 	}
 	
 	resp.body = JSON.stringify(doc)

@@ -3,7 +3,7 @@ function(newDoc, oldDoc, userCtx, secObj) {
     , is_admin = v.isAdmin()
  
   if (newDoc._deleted === true) {
-    if (is_admin) {
+    if (is_admin || newDoc.user === oldDoc.user) {
       return
     } else {
       v.unauthorized('Only admins may delete other user annotations.')
